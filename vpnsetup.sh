@@ -23,9 +23,9 @@
 # - All values MUST be quoted using 'single quotes'
 # - DO NOT use these characters inside values:  \ " '
 
-IPSEC_PSK='your_ipsec_pre_shared_key'
-VPN_USER='your_vpn_username'
-VPN_PASSWORD='your_very_secure_password'
+IPSEC_PSK='key'
+VPN_USER='vpn'
+VPN_PASSWORD='vpn'
 
 # Be sure to read *important notes* at the URL below:
 # https://github.com/hwdsl2/setup-ipsec-vpn#important-notes
@@ -85,8 +85,8 @@ echo
 # For all other servers, you may replace them with the actual IPs,
 # or comment out and let the script auto-detect in the next section.
 # If your server only has a public IP, put it on both lines.
-PUBLIC_IP=$(wget --retry-connrefused -t 3 -T 15 -qO- 'http://169.254.169.254/latest/meta-data/public-ipv4')
-PRIVATE_IP=$(wget --retry-connrefused -t 3 -T 15 -qO- 'http://169.254.169.254/latest/meta-data/local-ipv4')
+#PUBLIC_IP=$(wget --retry-connrefused -t 3 -T 15 -qO- 'http://169.254.169.254/latest/meta-data/public-ipv4')
+#PRIVATE_IP=$(wget --retry-connrefused -t 3 -T 15 -qO- 'http://169.254.169.254/latest/meta-data/local-ipv4')
 
 # Attempt to find server IPs for non-EC2 servers
 [ -z "$PUBLIC_IP" ] && PUBLIC_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
